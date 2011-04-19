@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	 
+	 <!-- <bean name="/events" class="com.someboys.eventum.controller.EventController" >
+	 	<property name="dao" ref="eventDao" />
+	 </bean>  -->
+	 <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	 	<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	 </bean>
+	 
+	 <bean id="tilesConfigurer" class="com.jorgepalacio.money.utils.SpringTilesConfigurer">
+	 	<property name="definitions">
+	 		<list>
+	 			<value>/WEB-INF/tiles/tiles.xml</value>
+	 		</list>
+	 	</property>
+	 </bean>
+	 
+	 <bean name="/account/add.html" class="com.jorgepalacio.money.controller.AddAccountController">
+	 	<property name="formView" value="addAccount" />
+	 	<property name="successView" value="redirect:/accounts/mine.html" />
+	 	<property name="commandName" value="command" />
+	 	<property name="commandClass" value="com.jorgepalacio.money.model.Account" />
+	 </bean>
+	 
+	 <bean name="/events/register.html" class="com.jorgepalacio.money.controller.RegisterController">
+	 	<property name="formView" value="register" />
+	 	<property name="successView" value="redirect:/events/register.html" />
+	 	<property name="commandName" value="command" />
+	 	<property name="commandClass" value="com.jorgepalacio.money.model.Movement" />
+	 </bean>
+</beans>

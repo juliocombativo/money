@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  		http://www.springframework.org/schema/security
+  		http://www.springframework.org/schema/security/spring-security-2.0.6.xsd
+  		http://www.springframework.org/schema/context  
+	 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<context:annotation-config />
+
+	<bean id="kakaw-ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="org.apache.derby.jdbc.EmbeddedDriver" p:url="jdbc:derby:/d/database/kakaw;create=true" />
+
+	<bean id="adapter"
+		class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+		<property name="showSql" value="true" />
+		<!-- <property name="generateDdl" value="true" />  -->
+	</bean>
+
+	<bean id="emf"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		p:dataSource-ref="kakaw-ds" p:jpaVendorAdapter-ref="adapter">
+		<property name="persistenceUnitName" value="kakaw" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="emf" />
+		<property name="dataSource" ref="kakaw-ds" />
+	</bean>
+	
+	<security:http auto-config="false">
+		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+		<security:form-login />
+		<security:anonymous granted-authority="ROLE_ANON" />
+		<security:concurrent-session-control max-sessions="1" />
+		<security:remember-me />
+	</security:http>
+	
+	<bean id="usersRef" class="com.jorgepalacio.money.utils.SpringJpaUserProvider" />
+	
+	<security:authentication-provider user-service-ref="usersRef">
+		<!-- <security:password-encoder hash="md5" />  -->
+	</security:authentication-provider>
+	
+	<import resource="daos.xml"/>
+</beans>

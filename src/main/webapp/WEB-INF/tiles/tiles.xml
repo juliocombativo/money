@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+  <definition name="base" template="/layouts/basic.jsp">
+    <put-attribute name="title" value="Kakaw - Site" />
+    <put-attribute name="header" value="/layouts/basic/header.jsp" />
+    <put-attribute name="footer" value="/layouts/basic/footer.jsp" />
+  </definition>
+  
+  <definition name="no-login" extends="base">
+  	<put-attribute name="menu" value="" />
+  </definition>
+  
+  <definition name="basic" extends="base">
+  	<put-attribute name="menu" value="/layouts/basic/menu.jsp" />
+  </definition>
+  
+  <definition name="login" extends="no-login">
+  	<put-attribute name="body" value="/login.jsp" />
+  </definition>
+  
+  <definition name="events" extends="basic">
+  	<put-attribute name="body" value="/events/index.jsp" />
+  </definition>
+  
+  <definition name="openIdRegister" extends="no-login">
+  	<put-attribute name="body" value="/jsps/user/registration.jsp" />
+  </definition>
+  
+  <definition name="normalRegister" extends="no-login">
+  	<put-attribute name="body" value="/jsps/user/new_user.jsp" />
+  </definition>
+  
+  <definition name="myAccounts" extends="basic">
+  	<put-attribute name="body" value="/jsps/accounts/list.jsp" />
+  </definition>
+  
+  <definition name="addAccount" extends="basic">
+  	<put-attribute name="body" value="/jsps/accounts/form_add.jsp" />
+  </definition>
+  
+  <definition name="balance" extends="basic">
+  	<put-attribute name="body" value="/jsps/accounts/balance.jsp" />
+  </definition>
+  
+  <definition name="register" extends="basic">
+  	<put-attribute name="body" value="/jsps/register/list.jsp" />
+  </definition>
+  
+  <definition name="accountTypes" extends="no-login">
+  	<put-attribute name="body" value="/jsps/accountType/list.jsp" />
+  </definition>
+  
+  <definition name="addAccountType" extends="no-login">
+  	<put-attribute name="body" value="/jsps/accountType/form.jsp" />
+  </definition>
+  
+  <definition name="editAccountType" extends="no-login">
+  	<put-attribute name="body" value="/jsps/accountType/form.jsp" />
+  </definition>
+  
+  <definition name="userList" extends="no-login">
+  	<put-attribute name="body" value="/jsps/user/list.jsp" />
+  </definition>
+  
+  <definition name="addUser" extends="no-login">
+  	<put-attribute name="body" value="/jsps/user/form.jsp" />
+  </definition>
+  
+  <definition name="editUser" extends="no-login">
+  	<put-attribute name="body" value="/jsps/user/form.jsp" />
+  </definition>
+</tiles-definitions>

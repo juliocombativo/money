@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:tx="http://www.springframework.org/schema/tx"
+	 xmlns:aop="http://www.springframework.org/schema/aop"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	 	http://www.springframework.org/schema/tx  
+	 	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	 	http://www.springframework.org/schema/aop
+	 	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	 	
+	 <bean id="accountTypeDao" class="com.jorgepalacio.money.dao.impl.JpaDaoTemplate">
+	 	<property name="klazz" value="com.jorgepalacio.money.model.AccountType"/>
+	 	<qualifier value="accountTypeDao" />
+	 </bean>
+	 
+	 <bean id="userDao" class="com.jorgepalacio.money.dao.impl.JpaDaoTemplate">
+	 	<property name="klazz" value="com.jorgepalacio.money.model.User"/>
+	 	<qualifier value="userDao" />
+	 </bean>
+	 
+	 <bean id="accountDao" class="com.jorgepalacio.money.dao.impl.JpaDaoTemplate">
+	 	<property name="klazz" value="com.jorgepalacio.money.model.Account"/>
+	 	<qualifier value="accountDao" />
+	 </bean>
+	 
+	 <bean id="movementDao" class="com.jorgepalacio.money.dao.impl.JpaDaoTemplate">
+	 	<property name="klazz" value="com.jorgepalacio.money.model.Movement"/>
+	 	<qualifier value="movementDao" />
+	 </bean>
+	 
+	 <bean class="com.jorgepalacio.money.service.UserService" />
+	 <bean class="com.jorgepalacio.money.service.MovementService" />
+	 <bean class="com.jorgepalacio.money.service.AccountService" />
+	 <bean class="com.jorgepalacio.money.service.AccountTypeService" />
+	 
+	 <!-- Transaction operation declaration -->
+	 <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	 	<tx:attributes>
+	 		<tx:method name="get*" read-only="true"/>
+	 		<tx:method name="by" read-only="true"/>
+	 	</tx:attributes>
+	 </tx:advice>
+	 
+	 <tx:annotation-driven transaction-manager="transactionManager"/>
+	 <!-- <aop:config>
+	 	<aop:pointcut id="anyService" expression="execution(* com.jorgepalacio.money.service.*.*(..))" />
+	 	<aop:advisor advice-ref="txAdvice" pointcut-ref="anyService" />
+	 </aop:config>  -->
+</beans>

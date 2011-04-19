@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+    version="1.0">
+    <persistence-unit name="kakaw" transaction-type="RESOURCE_LOCAL">
+    	<class>com.jorgepalacio.money.model.User</class>
+    	<class>com.jorgepalacio.money.model.Account</class>
+    	<class>com.jorgepalacio.money.model.AccountType</class>
+    	<class>com.jorgepalacio.money.model.Movement</class>
+    	<class>com.jorgepalacio.money.model.MovementDetails</class>
+    
+        <properties>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+            <property name="eclipselink.weaving" value="static"/>
+        </properties>
+    </persistence-unit>
+</persistence>

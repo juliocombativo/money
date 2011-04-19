@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+
+body * {
+	color:#000;
+}
+
+body .ui-widget-content { font-size: 12pt; }
+
+.menu .ui-button { font-size:12pt; }
+
+.content td, .content th { border-style:solid; border-width:1px; }
+
+.single_register .income {
+	color:green;
+}
+
+.single_register .expense {
+	color:red;
+}
