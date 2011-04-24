@@ -39,6 +39,7 @@ public class UserService {
 		return userDao.all();
 	}
 
+	@Transactional
 	public void createUser(User user) {
 		createUser(user.getFullName(), user.getLogin(), user.getEmail(), user
 				.getPassword());
