@@ -1,6 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<form:errors path="*" />
+<script type="text/javascript">
+<!--
+$(function() {
+	$('[name=startAmount]').attr('min', '0');
+	$('form').validate();
+});
+//-->
+</script>
 
 <form:form>
 <table>
@@ -9,7 +16,7 @@
 	</tr>
 	<tr>
 		<th scope="row">Account Name</th>
-		<td><form:input path="name" /></td>
+		<td><form:input path="name" cssClass="required" /></td>
 	</tr>
 	<tr>
 		<th scope="row">Account Type</th>
@@ -19,7 +26,7 @@
 	</tr>
 	<tr>
 		<th scope="row">Start Amount</th>
-		<td><form:input path="startAmount" /></td>
+		<td><form:input path="startAmount" cssClass="required" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="Send" /></td>
