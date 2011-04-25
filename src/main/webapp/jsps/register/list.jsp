@@ -58,7 +58,7 @@ $(function() {
 
 <div id="registers">
 <c:forEach items="${lastMovements}" var="movement">
-  <div class="single_register" class="<c:if test="${movement[0].expense}">expense</c:if><c:if test="${not movement[0].expense}">income</c:if>">
+  <div class="single_register <c:if test="${movement[0].expense}">expense</c:if><c:if test="${not movement[0].expense}">income</c:if>">
     <div class="movement_date">
     	<fmt:formatDate value="${movement[0].date}" pattern="dd/MM/yyyy"/>
     </div>

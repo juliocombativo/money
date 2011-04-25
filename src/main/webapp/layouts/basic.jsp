@@ -12,6 +12,7 @@
   	<script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/js/jquery.validate.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/js/additional-methods.min.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/js/jquery.gchart.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/js/jquery-ui-1.8.11.custom.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/js/money.js" />"></script>
   </head>

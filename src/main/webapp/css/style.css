@@ -10,10 +10,68 @@ body .ui-widget-content { font-size: 12pt; }
 
 .content td, .content th { border-style:solid; border-width:1px; }
 
-.single_register .income {
-	color:green;
+.single_register {
+	margin:2px;
+	padding:5px;
+	width:300px;
 }
 
-.single_register .expense {
-	color:red;
+.single_register .movement_date {
+	background-color:#D2D2FF;
+	margin:1px; padding:1px;
+}
+
+.movement_detail  h4{
+	margin:1px; padding: 1px;
+	float:left;
+}
+
+.movement_amount{
+	margin:1px; padding: 1px;
+	float:right;
+}
+
+.single_register .movement_detail {
+	border-style:solid;
+	border-width:1px;
+	margin:2px; padding:2px;
+	height: 40px;
+}@CHARSET "ISO-8859-1";
+
+body * {
+	color:#000;
+}
+
+body .ui-widget-content { font-size: 12pt; }
+
+.menu .ui-button { font-size:12pt; }
+
+.content td, .content th { border-style:solid; border-width:1px; }
+
+.single_register {
+	margin:2px;
+	padding:5px;
+	width:300px;
+}
+
+.single_register .movement_date {
+	background-color:#D2D2FF;
+	margin:1px; padding:1px;
+}
+
+.movement_detail  h4{
+	margin:1px; padding: 1px;
+	float:left;
+}
+
+.movement_amount{
+	margin:1px; padding: 1px;
+	float:right;
+}
+
+.single_register .movement_detail {
+	border-style:solid;
+	border-width:1px;
+	margin:2px; padding:2px;
+	height: 40px;
 }

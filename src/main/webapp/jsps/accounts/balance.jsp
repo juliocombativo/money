@@ -13,6 +13,7 @@
     <td><c:out value="${account.accountType.name}" /> </td>
     <td><c:out value="${account.name}" /> </td>
     <td align="right"><fmt:formatNumber value="${account.currentAmount}" currencySymbol="$" type="currency" minFractionDigits="2" /></td>
+    <td>&nbsp;</td>
   </tr>
   <c:set var="assetTotal" value="${assetTotal + account.currentAmount}" ></c:set>
 </c:forEach>
