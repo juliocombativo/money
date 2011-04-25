@@ -25,7 +25,6 @@ public class AccountValidatorTest extends TestCase {
 		doValidate(validator, accountType().get());
 		
 		doValidate(validator, accountType().withType(null).get(), "accountType.required");
-		doValidate(validator, accountType().withClient(null).get(), "client.required");
 		doValidate(validator, accountType().withName(null).get(), "name.required");
 		doValidate(validator, accountType().withName("").get(), "name.required");
 		

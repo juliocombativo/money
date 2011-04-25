@@ -17,7 +17,6 @@ public class AccountValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmpty(errors, "name", "name.required", "Name is required.");
 		ValidationUtils.rejectIfEmpty(errors, "accountType", "accountType.required", "Account type is required.");
-		ValidationUtils.rejectIfEmpty(errors, "client", "client.required", "Client is required.");
 		
 		Account account = (Account) target;
 		if(account.getStartAmount() < 0) {
